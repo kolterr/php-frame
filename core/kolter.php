@@ -43,8 +43,13 @@ class kolter{
     public  function  display($file){
         $filePath=APP.'/views/'.$file;
         if(is_file($filePath)){
-            extract($this->assign);
-            include  $filePath;
+            $loader = new \Twig_Loader_Filesystem('./app/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => KOLTER.'/log/twig',
+                'debug' => DEBUG,
+            ));
+            $template = $twig->load($file);
+            $template->display($this->assign?$this->assign:"");
         }
     }
 }

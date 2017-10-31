@@ -22,4 +22,19 @@ class deploy {
            return self::$conf[$file][$name];
         }
     }
+
+    static  public  function  all($file){
+        if(!isset(self::$conf[$file])){
+            $filePath=KOLTER.'\core\config\\'.$file.'.php';
+            if(is_file($filePath)){
+                $conf=include  $filePath;
+                self::$conf[$file]=$conf;
+                return $conf;
+            }else {
+                throw  new \Exception('找不到配置文件');
+            }
+        }else{
+            return self::$conf[$file];
+        }
+    }
 }

@@ -1,10 +1,9 @@
 <?php
 namespace app\controller;
+use core\lib\model;
+
 class indexController extends \core\kolter{
     public function index(){
-        $temp=\core\lib\deploy::get('controller','route');
-        $temp=\core\lib\deploy::get('controller','route');
-        print_r($temp);
         $this->assign('data','Hello world!!');
         $this->display('index/index.html');
     }

@@ -7,5 +7,10 @@
  */
 
 return array(
-
+    'database_type' => 'mysql',
+    'database_name' => 'maibo',
+    'server' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'charset' => 'utf8',
 );
